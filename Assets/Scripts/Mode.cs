@@ -5,10 +5,6 @@ public class Mode
     public string name;
     private ModeMethod modeMethod;
 
-    //public Mode(ModeMethod modeMethod)
-    //{
-    //    this.modeMethod = modeMethod;
-    //}
     public Mode(string name, ModeMethod modeMethod)
     {
         this.name = name;

@@ -766,8 +766,8 @@ MonoBehaviour:
   _OnRotation:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1223384438}
-        m_TargetAssemblyTypeName: MultimeterSwitch, Assembly-CSharp
+      - m_Target: {fileID: 5853642829249648729}
+        m_TargetAssemblyTypeName: Multimeter, Assembly-CSharp
         m_MethodName: switchMode
         m_Mode: 0
         m_Arguments:
@@ -778,7 +778,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  rotation_speed: 40
+  position: 0
+  position_list:
+  - 0
+  - 45
+  - 135
+  - 315
+  - 225
 --- !u!64 &512720826
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -897,7 +903,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &939034918
 GameObject:
@@ -1016,52 +1022,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 66.3, y: -90, z: 0}
---- !u!114 &1223384438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583783173134048057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8db9f784a26ac94ebc53bf9ae15731c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 0
-  device: {fileID: 54956738}
-  _UpdateScreen:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1318570225}
-        m_TargetAssemblyTypeName: Screen, Assembly-CSharp
-        m_MethodName: ScreenUpdate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _UpdateUI:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1793318329}
-        m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: UpdateUI
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1318570221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1222,7 @@ GameObject:
   - component: {fileID: 1793318327}
   - component: {fileID: 1793318329}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1295,7 +1257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1793318329
 MonoBehaviour:
@@ -1511,7 +1473,7 @@ GameObject:
   - component: {fileID: 5853642829249648728}
   - component: {fileID: 2565579518020522675}
   - component: {fileID: 3466549630131474391}
-  - component: {fileID: 1223384438}
+  - component: {fileID: 5853642829249648729}
   m_Layer: 0
   m_Name: Multimeter
   m_TagString: Untagged
@@ -1680,6 +1642,49 @@ Transform:
   m_Father: {fileID: 543450653659423401}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &5853642829249648729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583783173134048057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f82f2c186c4478478b8b6c72973bf66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  device: {fileID: 54956738}
+  _UpdateScreen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1318570225}
+        m_TargetAssemblyTypeName: Screen, Assembly-CSharp
+        m_MethodName: ScreenUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _UpdateUI:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1793318329}
+        m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &7043370326670123535
 Transform:
   m_ObjectHideFlags: 0
@@ -1739,7 +1744,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9bf5299432c55e24bb49f57eed4acaa8, type: 2}
+  - {fileID: 2100000, guid: b6a45d030118efe438c765054013b902, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

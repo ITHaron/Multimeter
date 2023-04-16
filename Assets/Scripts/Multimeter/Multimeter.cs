@@ -5,21 +5,21 @@ using System;
 using UnityEngine.Events;
 using Newtonsoft.Json.Linq;
 
-public abstract class Multimeter : MonoBehaviour
+public class Multimeter : MonoBehaviour
 {
     //[SerializeField] protected double value;
     [SerializeField] private Device device;
     [SerializeField] protected Mode mode;
 
-    [SerializeField] protected UnityEvent<double> _UpdateScreen;
-    [SerializeField] protected UnityEvent<double, double, double, double> _UpdateUI;
+    [SerializeField] private UnityEvent<double> _UpdateScreen;
+    [SerializeField] private UnityEvent<double, double, double, double> _UpdateUI;
 
 
-    protected Mode DefaultMode = new Mode("Default", (resistance, power) => { return 0; }); // 0
-    protected Mode ResistanceMode = new Mode("Ω", (resistance, power) => { return resistance; }); // R
-    protected Mode ForceMode = new Mode("A", (resistance, power) => { return Math.Sqrt(resistance / power); }); // I = sqrt(P/R)
-    protected Mode VoltageMode = new Mode("V", (resistance, power) => { return Math.Sqrt(resistance * power); }); // U = sqrt(P*R)
-    protected Mode AlternatingCurrentMode = new Mode("V-", (resistance, power) => { return 0.01; }); // 0.01
+    private Mode DefaultMode = new Mode("Default", (resistance, power) => { return 0; }); // 0
+    private Mode ResistanceMode = new Mode("Ω", (resistance, power) => { return resistance; }); // R
+    private Mode ForceMode = new Mode("A", (resistance, power) => { return Math.Sqrt(resistance / power); }); // I = sqrt(P/R)
+    private Mode VoltageMode = new Mode("V", (resistance, power) => { return Math.Sqrt(resistance * power); }); // U = sqrt(P*R)
+    private Mode AlternatingCurrentMode = new Mode("V-", (resistance, power) => { return 0.01; }); // 0.01
 
     private void Start() 
     {
@@ -27,12 +27,12 @@ public abstract class Multimeter : MonoBehaviour
         DeviceConnection(device);
     }
 
-    public void UpdateScreen()
+    private void UpdateScreen()
     {
         _UpdateScreen.Invoke(this.mode.GetValue(GetDeviseResistance(), GetDevisePower()));
     }
 
-    protected void UpdateUI()
+    private void UpdateUI()
     {
         double resistance = GetDeviseResistance();
         double power = GetDevisePower();
@@ -45,7 +45,7 @@ public abstract class Multimeter : MonoBehaviour
         );
     }
 
-    protected void SelectMode(Mode newMode)
+    private void SelectMode(Mode newMode)
     {
         if (this.mode != newMode)
         {
@@ -55,7 +55,7 @@ public abstract class Multimeter : MonoBehaviour
     }
 
 
-    protected void DeviceConnection(Device device)
+    private void DeviceConnection(Device device)
     {
         changeDevice(device);
     }
@@ -82,23 +82,29 @@ public abstract class Multimeter : MonoBehaviour
         return this.device == null ? 0 : device.getPower();
     }
 
-    //protected double GetResistance()
-    //{
-    //    return device.getResistance(); // R
-    //}
+    public void switchMode(float angle)
+    {
+        switch (angle)
+        {
+            case 0:
+                SelectMode(DefaultMode);
+                break;
 
-    //protected double GetForce()
-    //{
-    //    return Math.Sqrt(device.getResistance() / device.getPower()); // I = sqrt(P/R)
-    //}
+            case 1:
+                SelectMode(VoltageMode);
+                break;
 
-    //protected double GetVoltage()
-    //{
-    //    return Math.Sqrt(device.getResistance() * device.getPower()); // U = sqrt(P*R)
-    //}
+            case 2:
+                SelectMode(AlternatingCurrentMode);
+                break;
 
-    //protected double GetAlternatingСurrent()
-    //{
-    //    return 0.01;
-    //}
+            case 3:
+                SelectMode(ForceMode);
+                break;
+
+            case 4:
+                SelectMode(ResistanceMode);
+                break;
+        }
+    }
 }
