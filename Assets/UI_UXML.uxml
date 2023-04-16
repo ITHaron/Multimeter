@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/label_style.uss?fileID=7433441132597879392&amp;guid=01c5f591f3f1df64aafe0d81a798336b&amp;type=3#label_style" />
+    <ui:VisualElement style="flex-direction: column; align-items: flex-start; height: 624px; width: 1181px; max-width: 100%; max-height: 100%; min-width: 100%; min-height: 100%;">
+        <ui:GroupBox style="flex-basis: auto; flex-direction: row; justify-content: flex-start; flex-wrap: nowrap; top: auto; flex-shrink: 0; height: 617px; width: 1179px; align-items: flex-end; max-width: 100%; max-height: 100%; min-height: 100%; min-width: 100%;">
+            <ui:GroupBox style="align-items: flex-start;">
+                <ui:Label text="A" display-tooltip-when-elided="true" name="A" class="label" />
+                <ui:Label text="~" display-tooltip-when-elided="true" name="V-" class="label" />
+                <ui:Label text="Ω" display-tooltip-when-elided="true" name="R" class="label" />
+                <ui:Label text="V" display-tooltip-when-elided="true" name="V" class="label" />
+            </ui:GroupBox>
+            <ui:GroupBox style="flex-direction: column;">
+                <ui:Label text="0" display-tooltip-when-elided="true" name="A_Value" class="label" />
+                <ui:Label text="0" display-tooltip-when-elided="true" name="Vn_Value" class="label" />
+                <ui:Label text="0" display-tooltip-when-elided="true" name="R_Value" class="label" />
+                <ui:Label text="0" display-tooltip-when-elided="true" name="V_Value" class="label" />
+            </ui:GroupBox>
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>
